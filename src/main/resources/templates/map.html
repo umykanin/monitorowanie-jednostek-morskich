@@ -24,9 +24,12 @@
         attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
     }).addTo(map);
 
-    L.marker([51.5, -0.09]).addTo(map)
-        .bindPopup('Jestem w Londynie!!!!')
-        .openPopup();
+    var tracks = [[${tracks}]];
+    tracks.forEach(value => {
+        L.marker([value.y, value.x]).addTo(map)
+            .bindPopup('')
+            .openPopup();
+    })
 </script>
 
 </body>
