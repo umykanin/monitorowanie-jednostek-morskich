@@ -1,0 +1,16 @@
+let map = L.map('map').setView([63.41, 10.36], 10);
+
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+    }).addTo(map);
+
+    let tracks = [[${tracks}]];
+    tracks.forEach(value => {
+        L.marker([value.x, value.y]).addTo(map)
+            .bindPopup(value.name)
+            .openPopup();
+    })
+    let polygon = L.polygon([
+        [52.95, 19.23],
+        [55.95, 19.23]
+    ]).addTo(map);

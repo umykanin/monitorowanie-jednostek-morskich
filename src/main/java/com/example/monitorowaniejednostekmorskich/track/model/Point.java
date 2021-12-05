@@ -1,15 +1,15 @@
-package com.example.monitorowaniejednostekmorskich.model;
+package com.example.monitorowaniejednostekmorskich.track.model;
 
 public class Point {
 
-    private double x;
     private double y;
+    private double x;
     private String name;
     private String destinations;
 
-    public Point(double x, double y, String name, String destinations) {
-        this.x = x;
+    public Point(double y, double x, String name, String destinations) {
         this.y = y;
+        this.x = x;
         this.name = name;
         this.destinations = destinations;
     }

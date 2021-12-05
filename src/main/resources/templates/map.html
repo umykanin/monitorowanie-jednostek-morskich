@@ -7,30 +7,35 @@
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
           integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A=="
           crossorigin=""/>
-    <!-- Make sure you put this AFTER Leaflet's CSS -->
+    <link th:href="@{static/styles/map.css}" rel="stylesheet" />
     <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"
             integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA=="
             crossorigin=""></script>
-    <style>#map { height: 800px; }</style>
+
 </head>
 <body>
 
 <div id="map"></div>
-
 <script th:inline="javascript">
-    var map = L.map('map').setView([51.505, -0.09], 10);
+    let map = L.map('map').setView([63.41, 10.36], 10);
 
     L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
         attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
     }).addTo(map);
 
-    var tracks = [[${tracks}]];
+    let tracks = [[${tracks}]];
+
     tracks.forEach(value => {
-        L.marker([value.y, value.x]).addTo(map)
-            .bindPopup('')
+        L.marker([value.x, value.y]).addTo(map)
+            .bindPopup(value.name)
             .openPopup();
     })
+    let polygon = L.polygon([
+        [52.95, 19.23],
+        [55.95, 19.23]
+    ]).addTo(map)
 </script>
+<!--<script type="text/javascript" th:src="@{/static/js/map.js}"></script>-->
 
 </body>
 </html>

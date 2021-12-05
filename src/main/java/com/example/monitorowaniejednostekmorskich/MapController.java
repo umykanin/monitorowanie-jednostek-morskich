@@ -1,9 +1,11 @@
 package com.example.monitorowaniejednostekmorskich;
 
-import com.example.monitorowaniejednostekmorskich.model.TrackService;
+import com.example.monitorowaniejednostekmorskich.track.TrackService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+
+import java.net.URISyntaxException;
 
 @Controller
 public class MapController {
@@ -15,7 +17,7 @@ public class MapController {
     }
 
     @GetMapping
-    public String getMap(Model model) {
+    public String getMap(Model model) throws URISyntaxException {
         model.addAttribute("tracks", trackService.getTracks());
         return "map";
     }

@@ -1,5 +1,5 @@
 
-package com.example.monitorowaniejednostekmorskich.model;
+package com.example.monitorowaniejednostekmorskich.track.model;
 
 import java.util.HashMap;
 import java.util.List;
